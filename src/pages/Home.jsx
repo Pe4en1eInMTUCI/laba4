@@ -17,7 +17,6 @@ export const Home = () => {
    const createTodoHandler = (text) => {
        setTodos((prevState) => [...prevState, { id: Date.now(), text }])
        setText('')
-       // a = [1,2,3] => b = [...[1,2,3], 4,5,6] = [1,2,3,4,5,6]
    }
 
    const removeTodoHandler = (id) => {
@@ -29,9 +28,10 @@ export const Home = () => {
            flexDirection="column"
            h="100vh"
            w="100vw"
-           m="1rem"
            gap="1rem"
            alignItems="center"
+           background={'#090909'}
+           color={'white'}
        >
            <Heading textTransform="uppercase">Todo List</Heading>
            <List
@@ -40,7 +40,7 @@ export const Home = () => {
                display="flex"
                flexDirection="column"
                overflowY="scroll"
-               border="2px solid black"
+               border="2px solid white"
                borderRadius="md"
                p="10px"
            >
@@ -69,7 +69,7 @@ export const Home = () => {
            </List>
            <chakra.form
                onSubmit={(e) => {
-                   e.preventDefault() // Без перезагрузки приложения после добавления задачи
+                   e.preventDefault() 
                    createTodoHandler(text)
                }}
                display="flex"
